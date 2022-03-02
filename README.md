@@ -1,0 +1,1 @@
+# You need a extension called [Rest in pawn](https://github.com/ErikMinekus/sm-ripext)
