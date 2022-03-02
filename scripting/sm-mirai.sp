@@ -74,7 +74,7 @@ public void QQBot_Verify_Callback(HTTPResponse response, QQBot bot, const char[]
 {
 	if(response.Status != HTTPStatus_OK)
 	{
-		LogError("QQBot verify connection failed. Error: %s", error);
+		LogMessage("QQBot verify connection failed. Error: %s", error);
 		gB_Connected = false;
 		return;
 	}
@@ -88,7 +88,7 @@ public void QQBot_Verify_Callback(HTTPResponse response, QQBot bot, const char[]
 		char sError[64];
 		jsonObj.GetString("msg", sError, sizeof(sError));
 
-		LogError("QQBot verify connection failed. Error: %s", sError);
+		LogMessage("QQBot verify connection failed. Error: %s", sError);
 
 		gB_Connected = false;
 
@@ -133,7 +133,7 @@ public void OnBindSession_Callback(HTTPResponse response, any value, const char[
 		char sError[64];
 		jsonObj.GetString("msg", sError, sizeof(sError));
 
-		LogError("QQBot verify bind failed. Error: %s", sError);
+		LogMessage("QQBot verify bind failed. Error: %s", sError);
 
 		gB_Connected = false;
 
@@ -153,7 +153,7 @@ public any Native_QQBot_GetMemberInfo(Handle plugin, int numParams)
 {
 	if(!gB_Connected)
 	{
-		LogError("[mirai] QQBot haven't connected!");
+		LogMessage("[mirai] QQBot haven't connected!");
 
 		return;
 	}
@@ -189,7 +189,7 @@ public void QQBot_GetMemberInfo_Callback(HTTPResponse response, JSONObject data,
 {
 	if(response.Status != HTTPStatus_OK)
 	{
-		LogError("QQBot GetMemberInfo failed. Error: %s", error);
+		LogMessage("QQBot GetMemberInfo failed. Error: %s", error);
 		return;
 	}
 
@@ -213,7 +213,7 @@ public any Native_QQBot_SendMessageToGroup(Handle plugin, int numParams)
 {
 	if(!gB_Connected)
 	{
-		LogError("[mirai] QQBot haven't connected!");
+		LogMessage("[mirai] QQBot haven't connected!");
 
 		return;
 	}
@@ -264,7 +264,7 @@ public void QQBot_SendMessageToGroup_Callback(HTTPResponse response, JSONObject 
 {
 	if(response.Status != HTTPStatus_OK)
 	{
-		LogError("QQBot SendMessageToGroup failed. Error: %s", error);
+		LogMessage("QQBot SendMessageToGroup failed. Error: %s", error);
 		return;
 	}
 
@@ -288,7 +288,7 @@ public any Native_QQBot_SendTempMessage(Handle plugin, int numParams)
 {
 	if(!gB_Connected)
 	{
-		LogError("[mirai] QQBot haven't connected!");
+		LogMessage("[mirai] QQBot haven't connected!");
 
 		return;
 	}
@@ -341,7 +341,7 @@ public void QQBot_SendTempMessage_Callback(HTTPResponse response, JSONObject dat
 {
 	if(response.Status != HTTPStatus_OK)
 	{
-		LogError("QQBot SendTempMessage failed. Error: %s", error);
+		LogMessage("QQBot SendTempMessage failed. Error: %s", error);
 		return;
 	}
 
